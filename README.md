@@ -1,10 +1,10 @@
-
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chartered Investments</title>
-  <meta name="description" content="Chartered Investments — investment packages and loan applications" />
+  <title>Chartered Investments - Premium Investment Solutions</title>
+  <meta name="description" content="Chartered Investments — Premium investment packages, daily yields, and secure loan applications. Grow your wealth with trusted financial solutions." />
   <style>
     /* -------------------------
        Colors (5D palette)
@@ -93,11 +93,67 @@
     }
 
     /* -------------------------
+       Logo Styles
+       ------------------------- */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--gold), var(--royal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--navy);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+      border: 2px solid var(--gold);
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 215, 0, 0.6);
+    }
+
+    .brand-text {
+      text-align: center;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: clamp(24px, 5vw, 42px);
+      letter-spacing: 0.8px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--gold), var(--cyan), var(--muted-white));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .brand-text .tagline {
+      margin-top: 0.5rem;
+      font-size: clamp(12px, 2vw, 16px);
+      color: var(--muted-white);
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+    }
+
+    /* -------------------------
        Container & header
        ------------------------- */
     .container{
       max-width:var(--max-width);
-      margin:3.2rem auto;
+      margin:2rem auto;
       padding:1rem;
       display:flex;
       flex-direction:column;
@@ -113,16 +169,7 @@
       text-align:center;
       flex:1;
     }
-    .brand h1{
-      margin:0;
-      font-size:clamp(20px,5vw,36px);
-      letter-spacing:0.6px;
-      font-weight:800;
-      background: linear-gradient(90deg, var(--gold), var(--muted-white));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
+
     .nav-toggle{
       background:transparent;
       border:1px solid var(--glass-border);
@@ -166,6 +213,7 @@
       padding:0.5rem 0.8rem;
       font-family: monospace;
       font-size:14px;
+      margin-top: 1rem;
     }
     .marquee__inner{
       display:flex;
@@ -349,7 +397,9 @@
        ------------------------- */
     @media (max-width: 960px){
       .grid{ grid-template-columns: repeat(2, 1fr); }
-      .brand h1{ font-size:22px; text-align:left; }
+      .brand-text h1{ font-size:24px; text-align:center; }
+      .logo-container { flex-direction: column; gap: 0.5rem; }
+      .logo { width: 70px; height: 70px; font-size: 1.8rem; }
       header.site-header{ gap:0.6rem; position:relative; }
       .nav-menu{ right:0.6rem; top:5.6rem; }
     }
@@ -357,6 +407,8 @@
       .grid{ grid-template-columns: 1fr; }
       .container{ margin:1.2rem; }
       footer{ flex-direction:column; align-items:flex-start; gap:1rem; }
+      .logo { width: 60px; height: 60px; font-size: 1.5rem; }
+      .brand-text h1 { font-size: 20px; }
     }
 
     /* small visual tweaks for inputs on mobile */
@@ -373,7 +425,15 @@
   <div class="container">
     <header class="site-header">
       <div class="brand" role="banner">
-        <h1>Chartered Investments</h1>
+        <!-- Logo and Brand Section -->
+        <div class="logo-container">
+          <div class="logo">CI</div>
+          <div class="brand-text">
+            <h1>Chartered Investments</h1>
+            <div class="tagline">Premium Financial Solutions & Wealth Management</div>
+          </div>
+        </div>
+        
         <div class="marquee" aria-hidden="false" role="region" aria-label="Recent transactions">
           <div class="marquee__inner" id="marqueeContent">
             <span>254712*** withdrew 50k</span>
@@ -416,8 +476,7 @@
 
             <!-- expand area contains loan form -->
             <div class="expand" aria-hidden="true">
-              <form id="loanForm" class="loan-form" action="YOUR_FORMSPREE_ENDPOINT_HERE" method="POST">
-                <!-- Replace YOUR_FORMSPREE_ENDPOINT_HERE with your Formspree endpoint (e.g. https://formspree.io/f/xxxxx) -->
+              <form id="loanForm" class="loan-form" action="https://formspree.io/f/xjkpneqr" method="POST">
                 <input type="hidden" name="_subject" value="New Chartered Loans Application">
                 <label>Full Name (as in ID)
                   <input name="full_name" type="text" required placeholder="John Doe">
