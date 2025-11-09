@@ -93,13 +93,30 @@
     }
 
     /* -------------------------
-       Logo Styles
+       Header & Logo Styles
        ------------------------- */
+    .container{
+      max-width:var(--max-width);
+      margin:2rem auto;
+      padding:1rem;
+      display:flex;
+      flex-direction:column;
+      gap:1.6rem;
+    }
+
+    .main-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
     .logo-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.5rem;
       margin-bottom: 1rem;
     }
 
@@ -130,44 +147,35 @@
 
     .brand-text h1 {
       margin: 0;
-      font-size: clamp(24px, 5vw, 42px);
-      letter-spacing: 0.8px;
+      font-size: clamp(28px, 5vw, 48px);
+      letter-spacing: 1px;
       font-weight: 800;
       background: linear-gradient(90deg, var(--gold), var(--cyan), var(--muted-white));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      line-height: 1.1;
     }
 
     .brand-text .tagline {
-      margin-top: 0.5rem;
-      font-size: clamp(12px, 2vw, 16px);
+      margin-top: 0.8rem;
+      font-size: clamp(14px, 2vw, 18px);
       color: var(--muted-white);
       opacity: 0.9;
       letter-spacing: 0.5px;
+      font-weight: 500;
     }
 
     /* -------------------------
-       Container & header
+       Navigation & Marquee
        ------------------------- */
-    .container{
-      max-width:var(--max-width);
-      margin:2rem auto;
-      padding:1rem;
-      display:flex;
-      flex-direction:column;
-      gap:1.6rem;
-    }
     header.site-header{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:1rem;
-    }
-    .brand{
-      text-align:center;
-      flex:1;
+      width: 100%;
     }
 
     .nav-toggle{
@@ -180,6 +188,7 @@
       display:inline-flex;
       gap:0.4rem;
       align-items:center;
+      font-size: 14px;
     }
     .nav-toggle:focus{outline:2px solid rgba(0,255,255,0.12);}
     .nav-menu{
@@ -397,18 +406,19 @@
        ------------------------- */
     @media (max-width: 960px){
       .grid{ grid-template-columns: repeat(2, 1fr); }
-      .brand-text h1{ font-size:24px; text-align:center; }
-      .logo-container { flex-direction: column; gap: 0.5rem; }
+      .logo-container { flex-direction: column; gap: 1rem; }
       .logo { width: 70px; height: 70px; font-size: 1.8rem; }
+      .brand-text h1 { font-size: 32px; }
       header.site-header{ gap:0.6rem; position:relative; }
       .nav-menu{ right:0.6rem; top:5.6rem; }
     }
     @media (max-width: 560px){
       .grid{ grid-template-columns: 1fr; }
-      .container{ margin:1.2rem; }
+      .container{ margin:1rem; padding: 0.5rem; }
       footer{ flex-direction:column; align-items:flex-start; gap:1rem; }
       .logo { width: 60px; height: 60px; font-size: 1.5rem; }
-      .brand-text h1 { font-size: 20px; }
+      .brand-text h1 { font-size: 24px; }
+      .brand-text .tagline { font-size: 14px; }
     }
 
     /* small visual tweaks for inputs on mobile */
@@ -423,47 +433,49 @@
   <div class="dollar-floats" id="dollarFloats" aria-hidden="true"></div>
 
   <div class="container">
-    <header class="site-header">
-      <div class="brand" role="banner">
-        <!-- Logo and Brand Section -->
-        <div class="logo-container">
-          <div class="logo">CI</div>
-          <div class="brand-text">
-            <h1>Chartered Investments</h1>
-            <div class="tagline">Premium Financial Solutions & Wealth Management</div>
-          </div>
-        </div>
-        
-        <div class="marquee" aria-hidden="false" role="region" aria-label="Recent transactions">
-          <div class="marquee__inner" id="marqueeContent">
-            <span>254712*** withdrew 50k</span>
-            <span>254734*** deposited 23k</span>
-            <span>254701*** withdrew 17k</span>
-            <span>254720*** deposited 120k</span>
-            <span>254703*** withdrew 5k</span>
-            <span>254755*** deposited 40k</span>
-            <span>254788*** withdrew 12k</span>
-            <span>254799*** deposited 7k </span>
-            <span>254710*** withdrew 3k</span>
-            <span>254701*** deposited 230k</span>
-            <span>254733*** withdrew 25k</span>
-            <span>254744*** deposited 8k</span>
-            <span>254722*** withdrew 15k</span>
-            <span>254799*** deposited 33k</span>
-            <span>254711*** withdrew 50k</span>
-          </div>
+    <!-- Main Header with Logo and Title -->
+    <div class="main-header">
+      <div class="logo-container">
+        <div class="logo">CI</div>
+        <div class="brand-text">
+          <h1>Chartered Investments</h1>
+          <div class="tagline">Premium Financial Solutions & Wealth Management</div>
         </div>
       </div>
 
-      <div style="display:flex; gap:0.6rem; align-items:center;">
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">☰ Menu</button>
-        <div class="nav-menu" id="navMenu" role="menu" aria-hidden="true">
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#reviews">Reviews</a>
+      <header class="site-header">
+        <div class="brand" role="banner">
+          <div class="marquee" aria-hidden="false" role="region" aria-label="Recent transactions">
+            <div class="marquee__inner" id="marqueeContent">
+              <span>254712*** withdrew 50k</span>
+              <span>254734*** deposited 23k</span>
+              <span>254701*** withdrew 17k</span>
+              <span>254720*** deposited 120k</span>
+              <span>254703*** withdrew 5k</span>
+              <span>254755*** deposited 40k</span>
+              <span>254788*** withdrew 12k</span>
+              <span>254799*** deposited 7k </span>
+              <span>254710*** withdrew 3k</span>
+              <span>254701*** deposited 230k</span>
+              <span>254733*** withdrew 25k</span>
+              <span>254744*** deposited 8k</span>
+              <span>254722*** withdrew 15k</span>
+              <span>254799*** deposited 33k</span>
+              <span>254711*** withdrew 50k</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+
+        <div style="display:flex; gap:0.6rem; align-items:center;">
+          <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">☰ Menu</button>
+          <div class="nav-menu" id="navMenu" role="menu" aria-hidden="true">
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#reviews">Reviews</a>
+          </div>
+        </div>
+      </header>
+    </div>
 
     <!-- Main packages -->
     <main>
